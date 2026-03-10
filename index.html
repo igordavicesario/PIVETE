@@ -100,7 +100,17 @@ gap:8px;
 .g-foto img,.g-edit img{width:100%;height:100%;object-fit:cover;display:none;border-radius:18px;}
 .g-foto video,.g-edit video{width:100%;height:100%;object-fit:cover;display:none;border-radius:18px;}
 .g-foto.filled img,.g-edit.filled img{display:block;}
-.g-foto.filled video,.g-edit.filled video{display:block;}
+.g-foto.filled.is-video img,.g-edit.filled.is-video img{display:none;}
+.g-foto.filled.is-video video,.g-edit.filled.is-video video{display:block;}
+.g-video-badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.55);border-radius:6px;padding:3px 8px;font-family:‘Space Mono’,monospace;font-size:8px;letter-spacing:1px;color:rgba(255,200,180,.8);z-index:5;pointer-events:none;display:none;}
+.filled.is-video .g-video-badge{display:block;}
+#type-picker{position:fixed;inset:0;z-index:8500;display:none;align-items:flex-end;justify-content:center;background:rgba(15,0,0,.7);backdrop-filter:blur(16px);}
+#type-picker.on{display:flex;}
+.type-sheet{background:rgba(40,3,3,.85);backdrop-filter:blur(20px);border:1px solid rgba(255,80,60,.18);border-radius:22px 22px 0 0;padding:36px;width:100%;max-width:400px;display:flex;flex-direction:column;gap:12px;}
+.type-ttl{font-family:‘UnifrakturMaguntia’,cursive;font-size:26px;color:#fff;text-align:center;margin-bottom:8px;}
+.type-btn{background:rgba(200,50,30,.15);border:1px solid rgba(255,100,80,.22);color:#fff;font-family:‘Space Mono’,monospace;font-size:10px;letter-spacing:2px;padding:15px;cursor:pointer;border-radius:12px;transition:background .2s;text-align:center;}
+.type-btn:hover{background:rgba(220,60,40,.3);}
+.type-cancel{background:none;border:1px solid rgba(255,80,60,.1);color:rgba(255,140,120,.35);font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:2px;padding:12px;cursor:pointer;border-radius:10px;}
 .g-foto.filled .g-empty,.g-edit.filled .g-empty{display:none;}
 .g-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
 .g-plus{font-size:28px;color:rgba(255,130,110,.28);transition:color .2s,transform .2s;}
@@ -110,18 +120,6 @@ gap:8px;
 .g-foto.filled:hover .g-overlay,.g-edit.filled:hover .g-overlay{opacity:1;}
 .g-del{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;background:rgba(140,10,10,.85);border:none;color:#fff;font-size:11px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:10;}
 .g-foto.filled:hover .g-del,.g-edit.filled:hover .g-del{display:flex;}
-
-/* VIDEO BADGE */
-.g-video-badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.6);border-radius:6px;padding:3px 8px;font-family:‘Space Mono’,monospace;font-size:8px;letter-spacing:1px;color:rgba(255,200,180,.8);z-index:5;pointer-events:none;}
-
-/* MEDIA TYPE PICKER */
-#type-picker{position:fixed;inset:0;z-index:8500;display:none;align-items:flex-end;justify-content:center;background:rgba(15,0,0,.7);backdrop-filter:blur(16px);}
-#type-picker.on{display:flex;}
-.type-sheet{background:rgba(40,3,3,.85);backdrop-filter:blur(20px);border:1px solid rgba(255,80,60,.18);border-radius:22px 22px 0 0;padding:36px;width:100%;max-width:400px;display:flex;flex-direction:column;gap:12px;}
-.type-ttl{font-family:‘UnifrakturMaguntia’,cursive;font-size:26px;color:#fff;text-align:center;margin-bottom:8px;}
-.type-btn{background:rgba(200,50,30,.15);border:1px solid rgba(255,100,80,.22);color:#fff;font-family:‘Space Mono’,monospace;font-size:10px;letter-spacing:2px;padding:15px;cursor:pointer;border-radius:12px;transition:background .2s;text-align:center;}
-.type-btn:hover{background:rgba(220,60,40,.3);}
-.type-cancel{background:none;border:1px solid rgba(255,80,60,.1);color:rgba(255,140,120,.35);font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:2px;padding:12px;cursor:pointer;border-radius:10px;}
 
 /* FRASE */
 .g-frase{background:rgba(160,30,10,.12);backdrop-filter:blur(14px);border:1px solid rgba(255,100,80,.16);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:transform .3s,background .3s;min-height:220px;}
@@ -178,7 +176,7 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
 .m-ok:hover{background:rgba(180,30,30,.6);}
 .m-no{background:none;border:1px solid rgba(255,80,60,.12);color:rgba(255,140,120,.35);font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:2px;padding:13px 18px;cursor:pointer;border-radius:10px;}
 
-/* PHOTO/VIDEO FULL */
+/* PHOTO FULL */
 #pfull{position:fixed;inset:0;z-index:8000;display:none;align-items:center;justify-content:center;background:rgba(10,0,0,.9);backdrop-filter:blur(20px);cursor:zoom-out;}
 #pfull.on{display:flex;}
 #pfull img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:16px;}
@@ -310,7 +308,7 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
   <button id="ebar-b" onclick="toggleEdit()">✏ EDITAR SITE</button>
 </div>
 
-<!-- MEDIA TYPE PICKER -->
+<!-- TYPE PICKER -->
 
 <div id="type-picker">
   <div class="type-sheet">
@@ -335,10 +333,8 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
   </div>
 </div>
 
-<!-- FULLSCREEN VIEWER -->
-
 <div id="pfull" onclick="closeFull()">
-  <img id="pfull-img" src="" alt="" style="display:none;"/>
+  <img id="pfull-img" src="" alt=""/>
   <video id="pfull-vid" controls style="display:none;"></video>
 </div>
 
@@ -357,7 +353,7 @@ function boot(){const l=document.getElementById('ld');l.classList.add('out');set
 // DATA — 8 trios
 const N=8;
 let photos=JSON.parse(localStorage.getItem('pv5_photos')||'{}');
-let mediaTypes=JSON.parse(localStorage.getItem('pv5_mediatypes')||'{}'); // 'image' or 'video'
+let mediaTypes=JSON.parse(localStorage.getItem('pv5_mediatypes')||'{}');
 const DEF_FRASES=[
   {txt:'TEXTO',from:'— ?'},
   {txt:'TEXTO',from:'— ?'},
@@ -380,59 +376,35 @@ function buildTrios(){
     const div=document.createElement('div');
     div.className='trio rv';
     div.innerHTML=`
-      <div class="g-foto" id="sf${fi}">
-        <img id="gi${fi}" src="" alt=""/>
-        <video id="gv${fi}" muted playsinline loop></video>
-        <div class="g-overlay"></div>
-        <div class="g-empty"><div class="g-plus">+</div><div class="g-slot-lbl">FOTO / VÍDEO</div></div>
-        <button class="g-del" onclick="delP(event,${fi})">✕</button>
-        <div class="g-video-badge" id="vbadge${fi}" style="display:none;">▶ VÍDEO</div>
-      </div>
-      <div class="g-edit" id="se${ei}">
-        <img id="gi${ei}" src="" alt=""/>
-        <video id="gv${ei}" muted playsinline loop></video>
-        <div class="g-overlay"></div>
-        <div class="g-empty"><div class="g-plus">+</div><div class="g-slot-lbl">FOTO / VÍDEO</div></div>
-        <button class="g-del" onclick="delP(event,${ei})">✕</button>
-        <div class="g-video-badge" id="vbadge${ei}" style="display:none;">▶ VÍDEO</div>
-      </div>
+      <div class="g-foto" id="sf${fi}"><img id="gi${fi}" src="" alt=""/><video id="gv${fi}" muted playsinline loop></video><div class="g-overlay"></div><div class="g-empty"><div class="g-plus">+</div><div class="g-slot-lbl">FOTO</div></div><button class="g-del" onclick="delP(event,${fi})">✕</button><div class="g-video-badge">▶ VÍDEO</div></div>
+      <div class="g-edit" id="se${ei}"><img id="gi${ei}" src="" alt=""/><video id="gv${ei}" muted playsinline loop></video><div class="g-overlay"></div><div class="g-empty"><div class="g-plus">+</div><div class="g-slot-lbl">EDIT</div></div><button class="g-del" onclick="delP(event,${ei})">✕</button><div class="g-video-badge">▶ VÍDEO</div></div>
       <div class="g-frase"><div class="g-frase-txt" id="ft${i}">${frases[i].txt}</div><div><div class="g-frase-from" id="ff${i}">${frases[i].from}</div><button class="g-frase-btn" onclick="openFrase(${i})">✏ EDITAR</button></div></div>
     `;
     container.appendChild(div);
     document.getElementById(`sf${fi}`).addEventListener('click',()=>handleSlot(fi));
     document.getElementById(`se${ei}`).addEventListener('click',()=>handleSlot(ei));
-
-    // hover play/pause for videos
-    [fi, ei].forEach(idx=>{
-      const slot=document.getElementById(idx===fi?`sf${fi}`:`se${ei}`);
+    [fi,ei].forEach(idx=>{
+      const slotEl=document.getElementById(idx===fi?`sf${fi}`:`se${ei}`);
       const vid=document.getElementById('gv'+idx);
-      slot.addEventListener('mouseenter',()=>{if(mediaTypes[idx]==='video')vid.play();});
-      slot.addEventListener('mouseleave',()=>{if(mediaTypes[idx]==='video'){vid.pause();vid.currentTime=0;}});
+      slotEl.addEventListener('mouseenter',()=>{if(mediaTypes[idx]==='video')vid.play();});
+      slotEl.addEventListener('mouseleave',()=>{if(mediaTypes[idx]==='video'){vid.pause();vid.currentTime=0;}});
     });
   }
   loadPhotos();revealObs();updateUI();
 }
 
 function handleSlot(i){
-  if(photos[i]){
-    // view fullscreen
-    openFull(i);
-    return;
-  }
+  if(photos[i]){openFull(i);return;}
   if(!editMode)return;
   pendingSlot=i;
   document.getElementById('type-picker').classList.add('on');
 }
 
-function closeTypePicker(){
-  document.getElementById('type-picker').classList.remove('on');
-  pendingSlot=null;
-}
+function closeTypePicker(){document.getElementById('type-picker').classList.remove('on');pendingSlot=null;}
 
 function pickFile(type){
   closeTypePicker();
-  const inp=document.createElement('input');
-  inp.type='file';
+  const inp=document.createElement('input');inp.type='file';
   inp.accept=type==='video'?'video/*':'image/*';
   inp.onchange=e=>{
     const f=e.target.files[0];if(!f)return;
@@ -453,55 +425,46 @@ function loadPhotos(){
   for(let i=0;i<N*2;i++){
     const img=document.getElementById('gi'+i);
     const vid=document.getElementById('gv'+i);
-    const badge=document.getElementById('vbadge'+i);
     if(!img||!vid)continue;
     const slot=img.parentElement;
-    const type=mediaTypes[i]||'image';
     if(photos[i]){
-      if(type==='video'){
-        img.src='';img.style.display='none';
-        vid.src=photos[i];vid.style.display='block';
-        if(badge)badge.style.display='block';
-      } else {
-        vid.src='';vid.style.display='none';
-        img.src=photos[i];img.style.display='block';
-        if(badge)badge.style.display='none';
-      }
       slot.classList.add('filled');
+      if(mediaTypes[i]==='video'){
+        slot.classList.add('is-video');
+        vid.src=photos[i];
+      } else {
+        slot.classList.remove('is-video');
+        img.src=photos[i];
+        vid.src='';
+      }
     } else {
-      img.src='';img.style.display='none';
-      vid.src='';vid.style.display='none';
-      if(badge)badge.style.display='none';
-      slot.classList.remove('filled');
+      img.src='';vid.src='';
+      slot.classList.remove('filled','is-video');
     }
   }
 }
 
 function delP(e,i){
   e.stopPropagation();
-  delete photos[i];
-  delete mediaTypes[i];
+  delete photos[i];delete mediaTypes[i];
   localStorage.setItem('pv5_photos',JSON.stringify(photos));
   localStorage.setItem('pv5_mediatypes',JSON.stringify(mediaTypes));
   loadPhotos();
 }
 
-// FULLSCREEN
 function openFull(i){
-  const type=mediaTypes[i]||'image';
-  const pf=document.getElementById('pfull');
   const pfImg=document.getElementById('pfull-img');
   const pfVid=document.getElementById('pfull-vid');
-  if(type==='video'){
-    pfImg.style.display='none';pfImg.src='';
-    pfVid.style.display='block';pfVid.src=photos[i];
-    pfVid.play();
+  if(mediaTypes[i]==='video'){
+    pfImg.style.display='none';
+    pfVid.style.display='block';pfVid.src=photos[i];pfVid.play();
   } else {
     pfVid.style.display='none';pfVid.pause();pfVid.src='';
     pfImg.style.display='block';pfImg.src=photos[i];
   }
-  pf.classList.add('on');
+  document.getElementById('pfull').classList.add('on');
 }
+
 function closeFull(){
   const pfVid=document.getElementById('pfull-vid');
   pfVid.pause();pfVid.src='';
