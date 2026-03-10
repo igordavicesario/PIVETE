@@ -1,4 +1,5 @@
 html>
+
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"/>
@@ -9,8 +10,11 @@ html>
 *{margin:0;padding:0;box-sizing:border-box;}
 *::selection{background:transparent;}
 html{scroll-behavior:smooth;}
-body{font-family:'Barlow Condensed',sans-serif;overflow-x:hidden;cursor:none;padding-bottom:60px;background:#0f0000;}.cur{width:8px;height:8px;background:#fff;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;}
+body{font-family:'Barlow Condensed',sans-serif;overflow-x:hidden;cursor:none;padding-bottom:60px;background:#0f0000;}
+
+.cur{width:8px;height:8px;background:#fff;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;}
 .cur-r{width:32px;height:32px;border:1px solid rgba(255,150,120,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s,top .1s;}
+
 /* RED SKY */
 .sky{
 position:relative;overflow:hidden;
@@ -18,7 +22,9 @@ background:linear-gradient(180deg,#0f0000 0%,#2a0404 12%,#520808 30%,#7a1212 50%
 }
 .sky2{background:linear-gradient(180deg,#1a0202 0%,#3d0606 20%,#6b1010 42%,#8e1e1e 60%,#aa2c2c 78%,#c03c3c 100%);}
 .sky3{background:linear-gradient(180deg,#0f0000 0%,#280404 18%,#4e0808 38%,#761414 56%,#961e1e 74%,#b02e2e 92%,#c44040 100%);}
+
 .clouds{position:absolute;inset:0;pointer-events:none;z-index:1;width:100%;height:100%;}
+
 /* LOADER */
 #ld{position:fixed;inset:0;z-index:9000;background:linear-gradient(180deg,#050000,#200404,#480808);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .8s;}
 #ld.out{opacity:0;pointer-events:none;}
@@ -27,6 +33,7 @@ background:linear-gradient(180deg,#0f0000 0%,#2a0404 12%,#520808 30%,#7a1212 50%
 .ld-fill{height:100%;width:0;background:rgba(255,160,140,.7);transition:width .06s;}
 .ld-sub{font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:5px;color:rgba(255,130,110,.4);opacity:0;animation:fu .6s .4s forwards;}
 @keyframes fu{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;background:rgba(15,0,0,.4);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,80,60,.1);}
 .nav-logo{font-family:‘UnifrakturMaguntia’,cursive;font-size:26px;color:#fff;text-shadow:0 0 20px rgba(180,40,40,.5);}
@@ -34,6 +41,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:14px 5vw;display:fle
 .nav-links a{font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:3px;color:rgba(255,160,140,.55);text-decoration:none;text-transform:uppercase;transition:color .2s;}
 .nav-links a:hover{color:#fff;}
 @media(max-width:600px){.nav-links{display:none;}}
+
 /* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 5vw 80px;text-align:center;position:relative;}
 .hero-tag{font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:5px;color:rgba(255,160,140,.45);margin-bottom:24px;position:relative;z-index:3;opacity:0;animation:fu .7s .6s forwards;}
@@ -43,12 +51,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:14px 5vw;display:fle
 .scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;font-family:‘Space Mono’,monospace;font-size:8px;letter-spacing:3px;color:rgba(255,130,110,.28);z-index:3;animation:bob 2.5s ease-in-out infinite;}
 .scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,130,110,.4),transparent);}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}55%{transform:translateX(-50%) translateY(7px);}}
+
 /* TICKER */
 .ticker{position:relative;z-index:10;overflow:hidden;white-space:nowrap;padding:12px 0;background:rgba(80,5,5,.35);backdrop-filter:blur(6px);border-top:1px solid rgba(255,80,60,.12);border-bottom:1px solid rgba(255,80,60,.12);}
 .tick-in{display:inline-block;animation:tick 24s linear infinite;}
 .tick-in span{font-family:‘UnifrakturMaguntia’,cursive;font-size:18px;color:rgba(255,170,150,.55);padding:0 20px;}
 .ticker.rev .tick-in{animation-direction:reverse;}
 @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
 /* SP SECTION */
 #sp{padding:14vh 6vw;position:relative;}
 .sp-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:3;}
@@ -57,8 +67,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:14px 5vw;display:fle
 .sp-eyebrow::after{content:’’;flex:1;height:1px;background:rgba(255,80,60,.12);}
 .sp-title{font-family:‘UnifrakturMaguntia’,cursive;font-size:clamp(50px,8vw,88px);color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.3),0 0 40px rgba(160,30,30,.4);line-height:.88;margin-bottom:28px;}
 .sp-body{font-size:16px;line-height:1.85;color:rgba(255,190,170,.6);font-weight:300;max-width:380px;}
+
 /* SPFC CREST */
 .spfc-crest{width:260px;height:260px;object-fit:cover;border-radius:50%;display:block;margin:0 auto;filter:drop-shadow(0 24px 48px rgba(0,0,0,.5));animation:nf 9s 1s ease-in-out infinite;}
+
 /* GALERIA */
 #galeria{padding:14vh 6vw;position:relative;}
 @media(max-width:900px){#galeria{padding:10vh 4vw;}}
@@ -66,7 +78,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:14px 5vw;display:fle
 @media(max-width:900px){.gal-header{margin-bottom:32px;}}
 .gal-title{font-family:‘UnifrakturMaguntia’,cursive;font-size:clamp(42px,7vw,84px);color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.3);line-height:.9;}
 .gal-sub{font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:2px;color:rgba(255,130,110,.28);max-width:180px;text-align:right;line-height:1.7;}
-/* TRIO /
+
+/* TRIO */
 .trio{display:grid;grid-template-columns:2fr 2fr 1.5fr;gap:10px;margin-bottom:10px;position:relative;z-index:3;}
 @media(max-width:900px){
 .trio{
@@ -74,17 +87,30 @@ grid-template-columns:1fr 1fr !important;
 grid-template-rows:auto auto !important;
 gap:8px;
 }
-.trio>:nth-child(1){grid-column:1;grid-row:1;}
-.trio>:nth-child(2){grid-column:2;grid-row:1;}
-.trio>:nth-child(3){grid-column:1 / span 2;grid-row:2;}
+.trio>*:nth-child(1){grid-column:1;grid-row:1;}
+.trio>*:nth-child(2){grid-column:2;grid-row:1;}
+.trio>*:nth-child(3){grid-column:1 / span 2;grid-row:2;}
 }
+
 /* FOTO SLOT */
 .g-foto,.g-edit{aspect-ratio:1/1;border-radius:18px;overflow:hidden;cursor:pointer;position:relative;transition:transform .35s;}
 .g-foto{background:rgba(200,60,40,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,110,90,.18);}
 .g-edit{background:rgba(180,40,20,.05);backdrop-filter:blur(10px);border:1px dashed rgba(255,100,80,.15);}
 .g-foto:hover,.g-edit:hover{transform:translateY(-6px) scale(1.01);}
 .g-foto img,.g-edit img{width:100%;height:100%;object-fit:cover;display:none;border-radius:18px;}
+.g-foto video,.g-edit video{width:100%;height:100%;object-fit:cover;display:none;border-radius:18px;}
 .g-foto.filled img,.g-edit.filled img{display:block;}
+.g-foto.filled.is-video img,.g-edit.filled.is-video img{display:none;}
+.g-foto.filled.is-video video,.g-edit.filled.is-video video{display:block;}
+.g-video-badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.55);border-radius:6px;padding:3px 8px;font-family:‘Space Mono’,monospace;font-size:8px;letter-spacing:1px;color:rgba(255,200,180,.8);z-index:5;pointer-events:none;display:none;}
+.filled.is-video .g-video-badge{display:block;}
+#type-picker{position:fixed;inset:0;z-index:8500;display:none;align-items:flex-end;justify-content:center;background:rgba(15,0,0,.7);backdrop-filter:blur(16px);}
+#type-picker.on{display:flex;}
+.type-sheet{background:rgba(40,3,3,.85);backdrop-filter:blur(20px);border:1px solid rgba(255,80,60,.18);border-radius:22px 22px 0 0;padding:36px;width:100%;max-width:400px;display:flex;flex-direction:column;gap:12px;}
+.type-ttl{font-family:‘UnifrakturMaguntia’,cursive;font-size:26px;color:#fff;text-align:center;margin-bottom:8px;}
+.type-btn{background:rgba(200,50,30,.15);border:1px solid rgba(255,100,80,.22);color:#fff;font-family:‘Space Mono’,monospace;font-size:10px;letter-spacing:2px;padding:15px;cursor:pointer;border-radius:12px;transition:background .2s;text-align:center;}
+.type-btn:hover{background:rgba(220,60,40,.3);}
+.type-cancel{background:none;border:1px solid rgba(255,80,60,.1);color:rgba(255,140,120,.35);font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:2px;padding:12px;cursor:pointer;border-radius:10px;}
 .g-foto.filled .g-empty,.g-edit.filled .g-empty{display:none;}
 .g-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
 .g-plus{font-size:28px;color:rgba(255,130,110,.28);transition:color .2s,transform .2s;}
@@ -94,6 +120,7 @@ gap:8px;
 .g-foto.filled:hover .g-overlay,.g-edit.filled:hover .g-overlay{opacity:1;}
 .g-del{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;background:rgba(140,10,10,.85);border:none;color:#fff;font-size:11px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:10;}
 .g-foto.filled:hover .g-del,.g-edit.filled:hover .g-del{display:flex;}
+
 /* FRASE */
 .g-frase{background:rgba(160,30,10,.12);backdrop-filter:blur(14px);border:1px solid rgba(255,100,80,.16);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:transform .3s,background .3s;min-height:220px;}
 @media(max-width:900px){.g-frase{min-height:130px;padding:18px 16px;}}
@@ -104,10 +131,12 @@ gap:8px;
 .g-frase-btn{margin-top:10px;background:rgba(200,50,30,.15);border:1px solid rgba(255,100,80,.18);color:rgba(255,150,130,.45);font-family:‘Space Mono’,monospace;font-size:8px;letter-spacing:2px;padding:6px 12px;cursor:pointer;border-radius:8px;transition:all .2s;display:none;}
 .edit-mode .g-frase-btn{display:block;}
 .g-frase-btn:hover{background:rgba(220,60,40,.25);color:#fff;}
+
 /* SP EDIT BTN */
 .sp-edit-btn{margin-top:16px;background:rgba(200,50,30,.12);border:1px solid rgba(255,100,80,.15);color:rgba(255,150,130,.4);font-family:‘Space Mono’,monospace;font-size:8px;letter-spacing:2px;padding:7px 14px;cursor:pointer;border-radius:8px;transition:all .2s;display:none;}
 .edit-mode .sp-edit-btn{display:block;}
 .sp-edit-btn:hover{background:rgba(220,60,40,.22);color:#fff;}
+
 /* FINAL */
 #final{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12vh 5vw;position:relative;}
 .final-name{font-family:‘UnifrakturMaguntia’,cursive;font-size:clamp(90px,22vw,240px);color:#fff;line-height:.82;text-shadow:5px 5px 0 rgba(0,0,0,.4),0 0 100px rgba(180,40,40,.5),0 20px 60px rgba(100,5,5,.5);position:relative;z-index:3;animation:nf 9s ease-in-out infinite;}
@@ -116,6 +145,7 @@ gap:8px;
 .final-edit-btn{margin-top:12px;background:rgba(200,50,30,.12);border:1px solid rgba(255,100,80,.15);color:rgba(255,150,130,.4);font-family:‘Space Mono’,monospace;font-size:8px;letter-spacing:2px;padding:7px 14px;cursor:pointer;border-radius:8px;transition:all .2s;display:none;position:relative;z-index:3;}
 .edit-mode .final-edit-btn{display:block;}
 .final-edit-btn:hover{background:rgba(220,60,40,.22);color:#fff;}
+
 .final-btns{display:flex;gap:16px;margin-top:36px;justify-content:center;position:relative;z-index:3;}
 .final-btn{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .25s,box-shadow .25s;cursor:pointer;}
 .final-btn:hover{transform:translateY(-4px) scale(1.08);}
@@ -124,12 +154,14 @@ gap:8px;
 .final-btn.telegram{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);box-shadow:0 4px 16px rgba(0,0,0,.3);}
 .final-btn.telegram:hover{background:rgba(255,255,255,.16);box-shadow:0 10px 28px rgba(0,0,0,.4);}
 .final-btn svg{width:24px;height:24px;}
+
 /* EDIT BAR */
 #ebar{position:fixed;bottom:0;left:0;right:0;z-index:600;padding:10px 5vw;display:flex;align-items:center;justify-content:space-between;background:rgba(15,0,0,.6);backdrop-filter:blur(12px);border-top:1px solid rgba(255,80,60,.1);}
 #ebar-s{font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:3px;color:rgba(255,140,120,.35);}
 #ebar-b{font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:2px;background:rgba(160,20,20,.35);border:1px solid rgba(255,80,60,.22);color:#fff;padding:8px 18px;cursor:pointer;border-radius:8px;transition:background .2s;}
 #ebar-b:hover{background:rgba(180,30,30,.5);}
 body.edit-mode #ebar{background:rgba(0,30,0,.5);}
+
 /* MODAL */
 #modal{position:fixed;inset:0;z-index:7000;display:none;align-items:flex-end;justify-content:center;background:rgba(15,0,0,.7);backdrop-filter:blur(16px);}
 #modal.on{display:flex;}
@@ -143,33 +175,51 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
 .m-ok{flex:1;background:rgba(160,20,20,.45);border:1px solid rgba(255,80,60,.28);color:#fff;font-family:‘Space Mono’,monospace;font-size:10px;letter-spacing:2px;padding:13px;cursor:pointer;border-radius:10px;transition:background .2s;}
 .m-ok:hover{background:rgba(180,30,30,.6);}
 .m-no{background:none;border:1px solid rgba(255,80,60,.12);color:rgba(255,140,120,.35);font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:2px;padding:13px 18px;cursor:pointer;border-radius:10px;}
+
 /* PHOTO FULL */
 #pfull{position:fixed;inset:0;z-index:8000;display:none;align-items:center;justify-content:center;background:rgba(10,0,0,.9);backdrop-filter:blur(20px);cursor:zoom-out;}
 #pfull.on{display:flex;}
 #pfull img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:16px;}
+#pfull video{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:16px;outline:none;}
+
 /* REVEAL */
 .rv{opacity:0;transform:translateY(44px);transition:opacity .9s ease,transform .9s ease;}
 .rv.show{opacity:1;transform:translateY(0);}
 </style>
+
 </head>
 <body>
 <div class="cur" id="c"></div>
-<div class="cur-r" id="cr"></div><!-- LOADER --><div id="ld">
+<div class="cur-r" id="cr"></div>
+
+<!-- LOADER -->
+
+<div id="ld">
   <div class="ld-logo">Pivete</div>
   <div class="ld-bar"><div class="ld-fill" id="lf"></div></div>
   <div class="ld-sub">RYAN NOVAK</div>
-</div><!-- NAV --><nav>
+</div>
+
+<!-- NAV -->
+
+<nav>
   <div class="nav-logo">Pivete</div>
   <div class="nav-links">
     <a href="#galeria">Galeria</a>
     <a href="#sp">SPFC</a>
   </div>
-</nav><svg width="0" height="0" style="position:absolute;">
+</nav>
+
+<svg width="0" height="0" style="position:absolute;">
   <defs>
     <filter id="cb"><feGaussianBlur stdDeviation="12"/></filter>
     <filter id="cm"><feGaussianBlur stdDeviation="6"/></filter>
   </defs>
-</svg><!-- HERO --><div id="hero" class="sky">
+</svg>
+
+<!-- HERO -->
+
+<div id="hero" class="sky">
   <svg class="clouds" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
     <ellipse cx="180" cy="800" rx="360" ry="115" fill="rgba(200,80,60,.32)" filter="url(#cb)"/>
     <ellipse cx="180" cy="780" rx="230" ry="80" fill="rgba(220,110,90,.22)" filter="url(#cm)"/>
@@ -189,7 +239,11 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
   <div class="hero-name">Pivete</div>
   <div class="hero-nick">Ryan Novak</div>
   <div class="scroll-hint"><div class="scroll-line"></div><span>SCROLL</span></div>
-</div><!-- SP --><div id="sp" class="sky sky2" style="padding:14vh 6vw;">
+</div>
+
+<!-- SP -->
+
+<div id="sp" class="sky sky2" style="padding:14vh 6vw;">
   <svg class="clouds" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice">
     <ellipse cx="300" cy="540" rx="375" ry="120" fill="rgba(195,72,52,.28)" filter="url(#cb)"/>
     <ellipse cx="1150" cy="520" rx="355" ry="115" fill="rgba(190,68,48,.25)" filter="url(#cb)"/>
@@ -204,7 +258,11 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
     </div>
     <img src="IMAGEM/2d1653b5-6ca5-4783-954b-a014af673acd.jpg" class="spfc-crest" alt="SPFC"/>
   </div>
-</div><!-- GALERIA — 8 trios --><div id="galeria" class="sky sky3" style="padding:14vh 6vw;">
+</div>
+
+<!-- GALERIA — 8 trios -->
+
+<div id="galeria" class="sky sky3" style="padding:14vh 6vw;">
   <svg class="clouds" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice">
     <ellipse cx="250" cy="540" rx="345" ry="112" fill="rgba(192,68,48,.26)" filter="url(#cb)"/>
     <ellipse cx="900" cy="558" rx="415" ry="128" fill="rgba(200,76,56,.23)" filter="url(#cb)"/>
@@ -214,7 +272,11 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
     <div class="gal-title">Galeria</div>
   </div>
   <div id="trios" style="position:relative;z-index:3;"></div>
-</div><!-- FINAL --><div id="final" class="sky sky2">
+</div>
+
+<!-- FINAL -->
+
+<div id="final" class="sky sky2">
   <svg class="clouds" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
     <ellipse cx="120" cy="840" rx="415" ry="142" fill="rgba(198,74,54,.3)" filter="url(#cb)"/>
     <ellipse cx="750" cy="868" rx="515" ry="162" fill="rgba(205,80,60,.28)" filter="url(#cb)"/>
@@ -227,7 +289,9 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
   <div class="final-name rv">Pivete</div>
   <div class="final-sub rv">com amor de todo mundo que te atura</div>
   <div class="final-sig rv" id="final-sig">— A QUADRILHA</div>
-  <button class="final-edit-btn" onclick="openFact('final-sig','Assinatura final')">✏ EDITAR</button><div class="final-btns rv">
+  <button class="final-edit-btn" onclick="openFact('final-sig','Assinatura final')">✏ EDITAR</button>
+
+  <div class="final-btns rv">
     <a href="https://open.spotify.com/playlist/SEU_LINK_AQUI" target="_blank" class="final-btn spotify" title="Playlist do Pivete">
       <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
     </a>
@@ -235,10 +299,29 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
       <svg viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
     </a>
   </div>
-</div><!-- EDIT BAR --><div id="ebar">
+</div>
+
+<!-- EDIT BAR -->
+
+<div id="ebar">
   <span id="ebar-s">MODO VISUALIZAÇÃO</span>
   <button id="ebar-b" onclick="toggleEdit()">✏ EDITAR SITE</button>
-</div><!-- MODAL --><div id="modal">
+</div>
+
+<!-- TYPE PICKER -->
+
+<div id="type-picker">
+  <div class="type-sheet">
+    <div class="type-ttl">Adicionar mídia</div>
+    <button class="type-btn" onclick="pickFile('image')">🖼 Foto</button>
+    <button class="type-btn" onclick="pickFile('video')">🎥 Vídeo</button>
+    <button class="type-cancel" onclick="closeTypePicker()">CANCELAR</button>
+  </div>
+</div>
+
+<!-- MODAL -->
+
+<div id="modal">
   <div class="modal-sheet">
     <div class="modal-ttl" id="modal-ttl">Editar</div>
     <input class="mi" id="m-from" placeholder="Nome / Assinatura"/>
@@ -248,9 +331,14 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
       <button class="m-no" onclick="closeModal()">CANCELAR</button>
     </div>
   </div>
-</div><div id="pfull" onclick="this.classList.remove('on')">
+</div>
+
+<div id="pfull" onclick="closeFull()">
   <img id="pfull-img" src="" alt=""/>
-</div><script>
+  <video id="pfull-vid" controls style="display:none;"></video>
+</div>
+
+<script>
 // CURSOR
 const cur=document.getElementById('c'),curR=document.getElementById('cr');
 let mx=0,my=0,rx=0,ry=0;
@@ -265,8 +353,8 @@ function boot(){const l=document.getElementById('ld');l.classList.add('out');set
 // DATA — 8 trios
 const N=8;
 let photos=JSON.parse(localStorage.getItem('pv5_photos')||'{}');
+let mediaTypes=JSON.parse(localStorage.getItem('pv5_mediatypes')||'{}');
 const DEF_FRASES=[
-
   {txt:'TEXTO',from:'— ?'},
   {txt:'TEXTO',from:'— ?'},
   {txt:'TEXTO',from:'— ?'},
@@ -277,7 +365,7 @@ const DEF_FRASES=[
   {txt:'TEXTO',from:'— ?'},
 ];
 let frases=JSON.parse(localStorage.getItem('pv5_frases')||'null')||DEF_FRASES;
-let editMode=false,editIdx=null,editType=null;
+let editMode=false,editIdx=null,editType=null,pendingSlot=null;
 
 // BUILD TRIOS
 function buildTrios(){
@@ -288,38 +376,101 @@ function buildTrios(){
     const div=document.createElement('div');
     div.className='trio rv';
     div.innerHTML=`
-      <div class="g-foto" id="sf${fi}"><img id="gi${fi}" src="" alt=""/><div class="g-overlay"></div><div class="g-empty"><div class="g-plus">+</div><div class="g-slot-lbl">FOTO</div></div><button class="g-del" onclick="delP(event,${fi})">✕</button></div>
-      <div class="g-edit" id="se${ei}"><img id="gi${ei}" src="" alt=""/><div class="g-overlay"></div><div class="g-empty"><div class="g-plus">+</div><div class="g-slot-lbl">EDIT</div></div><button class="g-del" onclick="delP(event,${ei})">✕</button></div>
+      <div class="g-foto" id="sf${fi}"><img id="gi${fi}" src="" alt=""/><video id="gv${fi}" muted playsinline loop></video><div class="g-overlay"></div><div class="g-empty"><div class="g-plus">+</div><div class="g-slot-lbl">FOTO</div></div><button class="g-del" onclick="delP(event,${fi})">✕</button><div class="g-video-badge">▶ VÍDEO</div></div>
+      <div class="g-edit" id="se${ei}"><img id="gi${ei}" src="" alt=""/><video id="gv${ei}" muted playsinline loop></video><div class="g-overlay"></div><div class="g-empty"><div class="g-plus">+</div><div class="g-slot-lbl">EDIT</div></div><button class="g-del" onclick="delP(event,${ei})">✕</button><div class="g-video-badge">▶ VÍDEO</div></div>
       <div class="g-frase"><div class="g-frase-txt" id="ft${i}">${frases[i].txt}</div><div><div class="g-frase-from" id="ff${i}">${frases[i].from}</div><button class="g-frase-btn" onclick="openFrase(${i})">✏ EDITAR</button></div></div>
     `;
     container.appendChild(div);
     document.getElementById(`sf${fi}`).addEventListener('click',()=>handleSlot(fi));
     document.getElementById(`se${ei}`).addEventListener('click',()=>handleSlot(ei));
+    [fi,ei].forEach(idx=>{
+      const slotEl=document.getElementById(idx===fi?`sf${fi}`:`se${ei}`);
+      const vid=document.getElementById('gv'+idx);
+      slotEl.addEventListener('mouseenter',()=>{if(mediaTypes[idx]==='video')vid.play();});
+      slotEl.addEventListener('mouseleave',()=>{if(mediaTypes[idx]==='video'){vid.pause();vid.currentTime=0;}});
+    });
   }
   loadPhotos();revealObs();updateUI();
 }
 
 function handleSlot(i){
-  const img=document.getElementById('gi'+i);
-  if(!img)return;
-  if(photos[i]){document.getElementById('pfull-img').src=photos[i];document.getElementById('pfull').classList.add('on');return;}
+  if(photos[i]){openFull(i);return;}
   if(!editMode)return;
-  const inp=document.createElement('input');inp.type='file';inp.accept='image/*';
-  inp.onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{photos[i]=ev.target.result;localStorage.setItem('pv5_photos',JSON.stringify(photos));loadPhotos();};r.readAsDataURL(f);};
+  pendingSlot=i;
+  document.getElementById('type-picker').classList.add('on');
+}
+
+function closeTypePicker(){document.getElementById('type-picker').classList.remove('on');pendingSlot=null;}
+
+function pickFile(type){
+  closeTypePicker();
+  const inp=document.createElement('input');inp.type='file';
+  inp.accept=type==='video'?'video/*':'image/*';
+  inp.onchange=e=>{
+    const f=e.target.files[0];if(!f)return;
+    const r=new FileReader();
+    r.onload=ev=>{
+      photos[pendingSlot]=ev.target.result;
+      mediaTypes[pendingSlot]=type;
+      localStorage.setItem('pv5_photos',JSON.stringify(photos));
+      localStorage.setItem('pv5_mediatypes',JSON.stringify(mediaTypes));
+      loadPhotos();
+    };
+    r.readAsDataURL(f);
+  };
   inp.click();
 }
 
 function loadPhotos(){
   for(let i=0;i<N*2;i++){
     const img=document.getElementById('gi'+i);
-    if(!img)continue;
+    const vid=document.getElementById('gv'+i);
+    if(!img||!vid)continue;
     const slot=img.parentElement;
-    if(photos[i]){img.src=photos[i];slot.classList.add('filled');}
-    else{img.src='';slot.classList.remove('filled');}
+    if(photos[i]){
+      slot.classList.add('filled');
+      if(mediaTypes[i]==='video'){
+        slot.classList.add('is-video');
+        vid.src=photos[i];
+      } else {
+        slot.classList.remove('is-video');
+        img.src=photos[i];
+        vid.src='';
+      }
+    } else {
+      img.src='';vid.src='';
+      slot.classList.remove('filled','is-video');
+    }
   }
 }
 
-function delP(e,i){e.stopPropagation();delete photos[i];localStorage.setItem('pv5_photos',JSON.stringify(photos));loadPhotos();}
+function delP(e,i){
+  e.stopPropagation();
+  delete photos[i];delete mediaTypes[i];
+  localStorage.setItem('pv5_photos',JSON.stringify(photos));
+  localStorage.setItem('pv5_mediatypes',JSON.stringify(mediaTypes));
+  loadPhotos();
+}
+
+function openFull(i){
+  const pfImg=document.getElementById('pfull-img');
+  const pfVid=document.getElementById('pfull-vid');
+  if(mediaTypes[i]==='video'){
+    pfImg.style.display='none';
+    pfVid.style.display='block';pfVid.src=photos[i];pfVid.play();
+  } else {
+    pfVid.style.display='none';pfVid.pause();pfVid.src='';
+    pfImg.style.display='block';pfImg.src=photos[i];
+  }
+  document.getElementById('pfull').classList.add('on');
+}
+
+function closeFull(){
+  const pfVid=document.getElementById('pfull-vid');
+  pfVid.pause();pfVid.src='';
+  document.getElementById('pfull-img').src='';
+  document.getElementById('pfull').classList.remove('on');
+}
 
 // EDIT
 function toggleEdit(){
@@ -368,5 +519,7 @@ function revealObs(){
 }
 
 buildTrios();
-</script></body>
+</script>
+
+</body>
 </html>
