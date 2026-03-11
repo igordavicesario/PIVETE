@@ -184,11 +184,18 @@ body.edit-mode #ebar{background:rgba(0,30,0,.5);}
 /* REVEAL */
 .rv{opacity:0;transform:translateY(44px);transition:opacity .9s ease,transform .9s ease;}
 .rv.show{opacity:1;transform:translateY(0);}
+
+/* HIDDEN FILE INPUTS */
+#inp-img,#inp-vid{position:fixed;left:-9999px;top:-9999px;opacity:0;width:1px;height:1px;}
 </style>
 </head>
 <body>
 <div class="cur" id="c"></div>
 <div class="cur-r" id="cr"></div>
+
+<!-- INPUTS FIXOS NO HTML — resolve problema do Safari -->
+<input type="file" id="inp-img" accept="image/*"/>
+<input type="file" id="inp-vid" accept="video/*"/>
 
 <!-- LOADER -->
 <div id="ld">
@@ -356,6 +363,27 @@ const DEF_FRASES=[
 let frases=JSON.parse(localStorage.getItem('pv5_frases')||'null')||DEF_FRASES;
 let editMode=false,editIdx=null,editType=null,pendingSlot=null;
 
+// FILE INPUTS fixos no HTML — compatível com Safari
+const inpImg=document.getElementById('inp-img');
+const inpVid=document.getElementById('inp-vid');
+
+function onFileChosen(type,e){
+  const f=e.target.files[0];if(!f||pendingSlot===null)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    photos[pendingSlot]=ev.target.result;
+    mediaTypes[pendingSlot]=type;
+    localStorage.setItem('pv5_photos',JSON.stringify(photos));
+    localStorage.setItem('pv5_mediatypes',JSON.stringify(mediaTypes));
+    loadPhotos();
+  };
+  r.readAsDataURL(f);
+  e.target.value='';
+}
+
+inpImg.addEventListener('change',e=>onFileChosen('image',e));
+inpVid.addEventListener('change',e=>onFileChosen('video',e));
+
 // BUILD TRIOS
 function buildTrios(){
   const container=document.getElementById('trios');
@@ -389,25 +417,12 @@ function handleSlot(i){
   document.getElementById('type-picker').classList.add('on');
 }
 
-function closeTypePicker(){document.getElementById('type-picker').classList.remove('on');pendingSlot=null;}
+function closeTypePicker(){document.getElementById('type-picker').classList.remove('on');}
 
 function pickFile(type){
   closeTypePicker();
-  const inp=document.createElement('input');inp.type='file';
-  inp.accept=type==='video'?'video/*':'image/*';
-  inp.onchange=e=>{
-    const f=e.target.files[0];if(!f)return;
-    const r=new FileReader();
-    r.onload=ev=>{
-      photos[pendingSlot]=ev.target.result;
-      mediaTypes[pendingSlot]=type;
-      localStorage.setItem('pv5_photos',JSON.stringify(photos));
-      localStorage.setItem('pv5_mediatypes',JSON.stringify(mediaTypes));
-      loadPhotos();
-    };
-    r.readAsDataURL(f);
-  };
-  inp.click();
+  if(type==='image') inpImg.click();
+  else inpVid.click();
 }
 
 function loadPhotos(){
@@ -501,4 +516,4 @@ function revealObs(){
 buildTrios();
 </script>
 </body>
-</html
+</html>
